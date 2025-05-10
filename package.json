@@ -1,0 +1,26 @@
+{
+  "name": "pickmeup-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ureca-team1/PickMeUp-Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ureca-team1/PickMeUp-Backend/issues"
+  },
+  "homepage": "https://github.com/ureca-team1/PickMeUp-Backend#readme",
+  "description": "",
+  "dependencies": {
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0"
+  }
+}

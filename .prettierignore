@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build output
+dist/
+build/
+out/
+
+# Cache
+.cache/
+.npm/
+.eslintcache
+
+# Misc
+.git/
+*.min.js
