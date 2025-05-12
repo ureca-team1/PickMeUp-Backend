@@ -17,7 +17,7 @@ async function getPollResultNational(_, res) {
     });
   } catch (err) {
     console.error(err);
-    return res.status(500);
+    return res.status(500).end();
   }
 }
 
@@ -40,7 +40,7 @@ async function getPollResultRegions(_, res) {
     return res.status(200).json({ pollResults });
   } catch (err) {
     console.error(err);
-    return res.status(500);
+    return res.status(500).end();
   }
 }
 

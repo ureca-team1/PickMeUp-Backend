@@ -11,7 +11,7 @@ async function getComments(_, res) {
     });
   } catch (err) {
     console.error(err);
-    return res.status(500);
+    return res.status(500).end();
   }
 }
 
@@ -33,10 +33,10 @@ async function postComments(req, res) {
 
     await comment.save();
 
-    return res.status(200);
+    return res.status(200).end();
   } catch (err) {
     console.error(err);
-    return res.status(500);
+    return res.status(500).end();
   }
 }
 
