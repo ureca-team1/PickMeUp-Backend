@@ -6,6 +6,7 @@ const {
   getPollResultNational,
   getPollResultRegions,
 } = require('@/controllers/pollResultController.js');
+const { castVote, revokeVote } = require('@/controllers/voteController.js');
 const cors = require('cors');
 const express = require('express');
 const app = express();
@@ -26,8 +27,6 @@ app.get('/', (_, res) => {
   res.send('Pick your president 🤖');
 });
 
-/** API */
-
 // Routers
 app.use('/api', apiRouter);
 
@@ -38,6 +37,10 @@ apiRouter.get('/poll-results/regions', getPollResultRegions);
 // 코멘트
 apiRouter.get('/comments', getComments);
 apiRouter.post('/comments', postComments);
+
+// 투표
+apiRouter.post('/vote', castVote);
+apiRouter.post('/vote/cancel', revokeVote);
 
 // Start the server
 app.listen(port, () => {
