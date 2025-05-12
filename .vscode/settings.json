@@ -1,0 +1,4 @@
+{
+  "javascript.suggestionActions.enabled": false,
+  "javascript.preferences.importModuleSpecifier": "non-relative" // 상대 경로 사용
+}
