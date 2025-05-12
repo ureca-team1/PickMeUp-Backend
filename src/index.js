@@ -1,7 +1,10 @@
 require('dotenv').config();
 
 const connectDB = require('@/config/db');
-const { getPollResultNational } = require('@/controllers/pollResultController.js');
+const {
+  getPollResultNational,
+  getPollResultRegions,
+} = require('@/controllers/pollResultController.js');
 const cors = require('cors');
 const express = require('express');
 const app = express();
@@ -27,10 +30,7 @@ app.get('/', (req, res) => {
 
 /** API */
 apiRouter.get('/poll-results/national', getPollResultNational);
-
-apiRouter.get('/poll-results/regions', (req, res) => {
-  res.send('Pick your president 🤖');
-});
+apiRouter.get('/poll-results/regions', getPollResultRegions);
 
 // Start the server
 app.listen(port, () => {

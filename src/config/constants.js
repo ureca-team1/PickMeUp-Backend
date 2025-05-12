@@ -18,3 +18,8 @@ const CANDIDATES = Object.freeze({
   7: '송진호',
   8: '기타',
 });
+
+module.exports = {
+  REGIONS,
+  CANDIDATES,
+};
