@@ -4,13 +4,7 @@ import globals from 'globals';
 
 export default [
   {
-    ignores: [
-      'node_modules/**',
-      'dist/**',
-      'build/**',
-      '.git/**',
-      '*.min.js'
-    ]
+    ignores: ['node_modules/**', 'dist/**', 'build/**', '.git/**', '*.min.js'],
   },
   eslint.configs.recommended,
   {
@@ -19,31 +13,34 @@ export default [
       ecmaVersion: 'latest',
       sourceType: 'commonjs',
       globals: {
-        ...globals.node
-      }
+        ...globals.node,
+      },
     },
     plugins: {
-      prettier
+      prettier,
     },
     rules: {
-      // CommonJS require() 
+      // CommonJS require()
       'import/no-commonjs': 'off',
       'import/no-dynamic-require': 'off',
-      
+
       'no-console': 'warn',
-      'no-unused-vars': ['error', { 
-        'argsIgnorePattern': '^_',
-        'varsIgnorePattern': '^_'
-      }],
+      'no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
       'no-var': 'error',
       'prefer-const': 'error',
-      'indent': ['error', 2],
+      indent: ['error', 2],
       'linebreak-style': ['error', 'unix'],
-      'quotes': ['error', 'single'],
-      'semi': ['error', 'always'],
-      
+      quotes: ['error', 'single'],
+      semi: ['error', 'always'],
+
       // Prettier
-      'prettier/prettier': 'error'
-    }
-  }
-]; 
+      'prettier/prettier': 'error',
+    },
+  },
+];
