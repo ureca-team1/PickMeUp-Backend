@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const connectDB = require('@/config/db');
-const { getComments } = require('@/controllers/commentController.js');
+const { getComments, postComments } = require('@/controllers/commentController.js');
 const {
   getPollResultNational,
   getPollResultRegions,
@@ -37,6 +37,7 @@ apiRouter.get('/poll-results/regions', getPollResultRegions);
 
 // 코멘트
 apiRouter.get('/comments', getComments);
+apiRouter.post('/comments', postComments);
 
 // Start the server
 app.listen(port, () => {
