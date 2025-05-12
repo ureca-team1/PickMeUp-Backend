@@ -5,4 +5,5 @@ const regionSchema = new mongoose.Schema(
   { collection: 'regions' }
 );
 
-module.exports = mongoose.model('Region', regionSchema);
+const Region = mongoose.model('Region', regionSchema);
+module.exports = Region;
