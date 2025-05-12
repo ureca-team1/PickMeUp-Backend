@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const connectDB = require('@/config/db');
+const { getComments } = require('@/controllers/commentController.js');
 const {
   getPollResultNational,
   getPollResultRegions,
@@ -21,16 +22,21 @@ app.use(
 );
 app.use(express.json());
 
-// Routers
-app.use('/api', apiRouter);
-
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
   res.send('Pick your president 🤖');
 });
 
 /** API */
+
+// Routers
+app.use('/api', apiRouter);
+
+// 실시간 지지율
 apiRouter.get('/poll-results/national', getPollResultNational);
 apiRouter.get('/poll-results/regions', getPollResultRegions);
+
+// 코멘트
+apiRouter.get('/comments', getComments);
 
 // Start the server
 app.listen(port, () => {
