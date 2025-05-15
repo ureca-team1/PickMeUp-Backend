@@ -1,13 +1,22 @@
 const Comment = require('@/models/Comment.js');
 
 /** GET 코멘트 조회 /api/comments */
-async function getComments(_, res) {
+async function getComments(req, res) {
   try {
-    const data = await Comment.find({});
+    const page = parseInt(req.query.page) || 1; // 1부터 시작
+    const size = parseInt(req.query.size) || 6;
+    const skip = (page - 1) * size;
+    const [data, totalComments] = await Promise.all([
+      Comment.find({}).skip(skip).limit(size),
+      Comment.countDocuments(),
+    ]);
     const comments = data.map((item) => ({ candidate: item.candidate_id, content: item.content }));
 
     return res.status(200).json({
       comments,
+      totalComments,
+      totalPages: Math.ceil(totalComments / size),
+      currentPage: page,
     });
   } catch (err) {
     console.error(err);
@@ -20,7 +29,7 @@ async function postComments(req, res) {
   try {
     const { candidate, content } = req.body;
 
-    if (!candidate || !content || content.trim() === '' || content.length > 40) {
+    if (!candidate || !content || content.trim() === '' || content.length > 30) {
       const message = 'Invalid input provided.';
       console.error(message);
       return res.status(400).json({ message });
