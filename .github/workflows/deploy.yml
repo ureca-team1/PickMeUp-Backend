@@ -23,7 +23,7 @@ jobs:
           stage: main
           yaml: |-
             name: pickmeup-backend
-            app: web
+            app: node
             options:
               nodeversion: "20"
               docbase: /dist
