@@ -19,14 +19,18 @@ jobs:
         uses: cloudtype-github-actions/deploy@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
-          project: ureca/pickmeup
+          project: ureca/pickmeup # {workspace-name}/{project-name}
           stage: main
           yaml: |-
-            name: pickmeup-backend
+            name: pickmeup-backend 
             app: node
             options:
               nodeversion: "20"
               docbase: /dist
+              port: 3000
+            env:
+                MONGODB_TEST_URI: ${{secrets.MONGODB_TEST_URI}}
+                MONGODB_URI: ${{secrets.MONGODB_URI}}
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
