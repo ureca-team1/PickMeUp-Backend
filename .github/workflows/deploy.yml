@@ -19,7 +19,7 @@ jobs:
         uses: cloudtype-github-actions/deploy@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
-          project: ureca/pickmeup-backend
+          project: ureca/pickmeup
           stage: main
           yaml: |-
             name: pickmeup-backend
