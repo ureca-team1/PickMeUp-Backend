@@ -20,6 +20,7 @@ jobs:
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
           project: ureca/pickmeup-backend
+          stage: main
           yaml: |-
             name: pickmeup
             app: web
