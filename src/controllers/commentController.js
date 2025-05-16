@@ -11,7 +11,11 @@ async function getComments(req, res) {
       Comment.countDocuments(),
     ]);
 
-    const comments = data.map((item) => ({ candidate: item.candidate_id, content: item.content }));
+    const comments = data.map((item) => ({
+      candidate: item.candidate_id,
+      content: item.content,
+      createdAt: item.createdAt,
+    }));
 
     return res.status(200).json({
       comments,

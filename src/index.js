@@ -9,6 +9,7 @@ const {
 const { castVote, revokeVote } = require('@/controllers/voteController.js');
 const cors = require('cors');
 const express = require('express');
+
 const app = express();
 const port = 3000;
 const apiRouter = express.Router();
