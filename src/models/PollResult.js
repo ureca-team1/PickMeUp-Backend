@@ -5,6 +5,7 @@ const pollResultSchema = new mongoose.Schema(
     region_id: { type: Number, required: true },
     candidate_id: { type: Number, required: true },
     support_count: { type: Number, required: true },
+    createdAt: { type: Date, default: Date.now },
   },
   { collection: 'poll_results' }
 );
