@@ -23,14 +23,17 @@ jobs:
           stage: main
           yaml: |-
             name: pickmeup-backend 
-            app: node
+            app: node@20
             options:
               nodeversion: "20"
               docbase: /dist
               port: 3000
+              install: npm i
             env:
-                MONGODB_TEST_URI: ${{ secrets.MONGODB_TEST_URI }}
-                MONGODB_URI: ${{ secrets.MONGODB_URI }}
+              - name: MONGODB_TEST_URI
+                value: ${{ secrets.MONGODB_TEST_URI }}
+               - name: MONGODB_URI
+                value: ${{ secrets.MONGODB_URI }}
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
