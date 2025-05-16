@@ -1,9 +1,8 @@
-async function addCreatedAtField(model) {
+async function addCreatedAtField(model, date = new Date()) {
   try {
-    // Update all existing comments to add createdAt field
     const result = await model.updateMany(
-      { createdAt: { $exists: false } }, // Only update comments without createdAt
-      { $set: { createdAt: new Date() } } // Set createdAt to the current date
+      { createdAt: { $exists: false } },
+      { $set: { createdAt: date.toISOString() } }
     );
 
     console.log(`Updated ${result.nModified} comments with createdAt field.`);
@@ -12,4 +11,4 @@ async function addCreatedAtField(model) {
   }
 }
 
-module.exports = addCreatedAtField;
+module.exports = { addCreatedAtField, convertKoreanDateToUTC };
