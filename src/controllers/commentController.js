@@ -7,10 +7,15 @@ async function getComments(req, res) {
     const size = parseInt(req.query.size) || 6;
     const skip = (page - 1) * size;
     const [data, totalComments] = await Promise.all([
-      Comment.find({}).skip(skip).limit(size),
+      Comment.find({}).sort({ createdAt: 'desc' }).skip(skip).limit(size),
       Comment.countDocuments(),
     ]);
-    const comments = data.map((item) => ({ candidate: item.candidate_id, content: item.content }));
+
+    const comments = data.map((item) => ({
+      candidate: item.candidate_id,
+      content: item.content,
+      createdAt: item.createdAt,
+    }));
 
     return res.status(200).json({
       comments,

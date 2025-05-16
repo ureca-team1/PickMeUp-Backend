@@ -4,6 +4,7 @@ const commentSchema = new mongoose.Schema(
   {
     candidate_id: { type: Number, required: true },
     content: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now },
   },
   { collection: 'comments' }
 );
