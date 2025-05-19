@@ -32,8 +32,8 @@ jobs:
               port: 3000
               install: npm i
               env:
-                MONGODB_TEST_URI: ${{ secrets.MONGODB_TEST_URI }}
-                MONGODB_URI: ${{ secrets.MONGODB_URI }}
+                MONGODB_TEST_URI: "${{ secrets.MONGODB_TEST_URI }}"
+                MONGODB_URI: "${{ secrets.MONGODB_URI }}"
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
