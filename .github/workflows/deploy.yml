@@ -21,14 +21,22 @@ jobs:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
           project: ureca/pickmeup # {workspace-name}/{project-name}
           stage: main
-          yaml: |
+          yaml: >
             name: pickmeup-backend
+
             app: node@20
+
             options:
               nodeversion: "20"
               docbase: /dist
               port: 3000
               install: npm i
+              env: 
+                - name: MONGODB_TEST_URI
+                value: ${{ secrets.MONGODB_TEST_URI }}
+              buildenv:
+                - name: MONGODB_TEST_URI
+                  value: ${{ secrets.MONGODB_TEST_URI }}
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
