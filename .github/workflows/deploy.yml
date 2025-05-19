@@ -36,9 +36,6 @@ jobs:
               env: 
                 - name: MONGODB_TEST_URI
                   value: ${{ secrets.MONGODB_TEST_URI }}
-              buildenv:
-                - name: MONGODB_TEST_URI
-                  value: ${{ secrets.MONGODB_TEST_URI }}
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
