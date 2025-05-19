@@ -9,26 +9,31 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v2
+
       - name: Connect
         uses: cloudtype-github-actions/connect@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
           ghtoken: ${{ secrets.GHP_TOKEN }}
           scope: ureca
+
       - name: Deploy
         uses: cloudtype-github-actions/deploy@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
-          project: ureca/pickmeup # {workspace-name}/{project-name}
+          project: ureca/pickmeup
           stage: main
-          yaml: |
-            name: pickmeup-backend
+          yaml: |-
+            name: pickmeup-backend 
             app: node@20
             options:
               nodeversion: "20"
               docbase: /dist
               port: 3000
               install: npm i
+              env:
+                MONGODB_TEST_URI: ${{ secrets.MONGODB_TEST_URI }}
+                MONGODB_URI: ${{ secrets.MONGODB_URI }}
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
