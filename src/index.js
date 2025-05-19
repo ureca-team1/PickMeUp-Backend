@@ -18,7 +18,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'https://pickmeup-plum.vercel.app'],
+    origin: ['http://localhost:5173', 'https://pick-me-up-three.vercel.app'],
     credentials: true,
   })
 );
