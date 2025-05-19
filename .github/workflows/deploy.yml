@@ -31,9 +31,9 @@ jobs:
               install: npm i
             env:
               - name: MONGODB_TEST_URI
-                value: ${{ secrets.MONGODB_TEST_URI }}
-               - name: MONGODB_URI
-                value: ${{ secrets.MONGODB_URI }}
+                value: %env:MONGODB_TEST_URI%
+              - name: MONGODB_URI
+                value: %env:MONGODB_URI%
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
