@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: ['.env.local', '.env'] });
 
 const connectDB = require('@/config/db');
 const { getComments, postComments } = require('@/controllers/commentController.js');
