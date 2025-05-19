@@ -34,8 +34,6 @@ jobs:
               port: 3000
               install: npm i
               env: 
-                - name: MONGODB_TEST_URI
-                  value: ${{ secrets.MONGODB_TEST_URI }}
                 - name: MONGODB_URI
                   value: ${{ secrets.MONGODB_URI }}
             context:
