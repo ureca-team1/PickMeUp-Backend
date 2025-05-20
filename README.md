@@ -3,7 +3,7 @@
 PickMeUp 애플리케이션의 백엔드 서버를 구현한 저장소입니다.  
 ➡️ [프론트엔드 저장소 보러가기](https://github.com/ureca-team1/PickMeUp-Frontend)
 
-[![View Demo](https://img.shields.io/badge/🚀%20View%20Demo-Click%20Here-black)](https://pick-me-up-orcin.vercel.app/)
+[![View Demo](https://img.shields.io/badge/🚀%20View%20Demo-Click%20Here-black)](https://pick-me-up-three.vercel.app/)
 
 ## 📌 프로젝트 소개
 
